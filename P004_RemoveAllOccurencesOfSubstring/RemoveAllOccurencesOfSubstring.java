@@ -1,3 +1,5 @@
+package P004_RemoveAllOccurencesOfSubstring;
+
 public class RemoveAllOccurencesOfSubstring {
 
     public static void main(String[] args) {
