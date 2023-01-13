@@ -1,5 +1,2 @@
+.vscode/*
 *.class
-*.json
-*.code-workspace
-.vscode/
-.vscode/*.json
