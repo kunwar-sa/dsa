@@ -1,7 +1,7 @@
 {
   "java.project.sourcePaths": [
-    "P1_ValidPalindrome",
-    "P16_FastExponentiation",
-    "P2_MaximumOccuringCharacter"
+    "P001_ValidPalindrome",
+    "P016_FastExponentiation",
+    "P002_MaximumOccuringCharacter"
   ]
 }
