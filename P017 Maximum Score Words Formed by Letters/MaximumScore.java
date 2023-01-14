@@ -94,8 +94,6 @@ public class MaximumScore {
 
         }
 
-        int n = validWords.size();
-
         List<List<String>> li = subsets(validWords);
 
         for (List<String> x : li) {
