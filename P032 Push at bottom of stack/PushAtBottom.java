@@ -15,16 +15,31 @@ public class PushAtBottom {
             System.out.println(x);
     }
 
-    public static Stack<Integer> pushAtBottom(Stack<Integer> s, int x) {
-        // Write your code here
-        int top = s.size();
-        s.push(-1);
-        while (top > 0) {
-            s.set(top, s.get(top--));
+    /*
+     * public static Stack<Integer> pushAtBottom(Stack<Integer> s, int x) {
+     * // Write your code here
+     * int top = s.size();
+     * s.push(-1);
+     * while (top > 0) {
+     * s.set(top, s.get(top--));
+     * 
+     * }
+     * s.add(0, x);
+     * s.pop();
+     * return s;
+     * }
+     */
 
+    // Recursive approach
+    public static Stack<Integer> pushAtBottom(Stack<Integer> s, int x) {
+        if (s.empty()) {
+            s.push(x);
+            return s;
         }
-        s.add(0, x);
-        s.pop();
+
+        int popped = s.pop();
+        s = pushAtBottom(s, x);
+        s.push(popped);
         return s;
     }
 }
