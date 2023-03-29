@@ -1,12 +1,13 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class CelebrityProblem {
 
     public static void main(String[] args) {
 
         int[][] arr = { { 0, 1, 0 }, { 0, 0, 0 }, { 0, 1, 0 } };
-        int ans = celebrity(arr, arr.length);
+        int ans = celebrity2(arr, arr.length);
 
         System.out.println(ans);
     }
@@ -50,6 +51,46 @@ public class CelebrityProblem {
 
         }
 
+        return ans;
+    }
+
+    // using stacks
+    public static int celebrity2(int M[][], int n) {
+
+        int ans = -1;
+        Stack<Integer> st = new Stack<>();
+
+        for (int i = 0; i < n; i++) {
+            st.push(i);
+        }
+
+        while (st.size() > 1) {
+
+            int person1 = st.pop();
+            int person2 = st.pop();
+
+            if (M[person1][person2] == 1) {
+                st.push(person2);
+            }
+
+            else {
+                st.push(person1);
+            }
+        }
+
+        int halfCel = st.pop();
+
+        for (int j = 0; j < n; j++) {
+            if (M[halfCel][j] != 0)
+                return ans;
+        }
+
+        for (int i = 0; i < n; i++) {
+            if (i != halfCel && M[i][halfCel] != 1)
+                return ans;
+        }
+
+        ans = halfCel;
         return ans;
     }
 }
